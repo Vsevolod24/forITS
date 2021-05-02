@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Addition room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="header :: header"></header>
+<div class="container mt-5 mb-10">
+    <h1>Addition room</h1>
+    <form action="#" th:action="@{/add_room}" th:object="${room}" method="post">
+        Name of room <input type="text" id="name" th:field="*{name}" placeholder="Name of room"
+                                  class="form-control"><br>
+
+        Name of country <select class="form-select" aria-label="Type" th:field="*{country}">
+        <option th:each="country : ${countries}" th:value="${country.countryId}" th:text="${country.nameCountry}">
+            country
+        </option>
+        </select><br>
+        Status <select class="form-select" aria-label="Type" th:field="*{light}">
+        <option th:each="light : ${lights}" th:value="${light.lightId}" th:text="${light.status}">
+            light
+        </option>
+        </select><br>
+        <br>
+        Description <textarea th:field="*{description}" placeholder="Write description"
+                              class="form-control"></textarea><br>
+        </p>
+        <button type="submit" class="btn btn-success">Add room</button>
+        <br>
+    </form>
+</div>
+<footer th:insert="footer :: footer"></footer>
+</body>
+</html>

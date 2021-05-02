@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Addition room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Hello</h1>
+<form action="#" th:action="@{/light/{id}(id=${room.id})}" th:object="${room}" method="post">
+    Name of country <select class="form-select" aria-label="Type" th:field="*{country}">
+    <option th:each="country : ${countries}" th:value="${country.countryId}" th:text="${country.nameCountry}">
+        country
+    </option>
+</select><br>
+    <br>
+</form>
+</div>
+<footer th:insert="footer :: footer"></footer>
+</body>
+</html>

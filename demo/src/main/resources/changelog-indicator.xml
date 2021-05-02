@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="kuchko">
+        <sql>
+            create database if not exists lightbulb;
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="kuchko">
+        <sql>
+            create table if not exists country (
+            country_id int not null primary key auto_increment,
+            name_Country varchar(30) not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="kuchko">
+        <sql>
+            create table if not exists light (
+            light_id int not null primary key auto_increment,
+            status varchar(30) not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="kuchko">
+        <sql>
+            insert into country(name_Country) values('Belarus');
+            insert into country(name_Country) values('Russia');
+            insert into country(name_Country) values('Germany');
+            insert into country(name_Country) values('Poland');
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="kuchko">
+        <sql>
+            insert into light(status) values('OFF');
+            insert into light(status) values('ON');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
